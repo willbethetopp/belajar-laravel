@@ -37,17 +37,22 @@ class DatabaseSeeder extends Seeder
         //     'password' => bcrypt('12345')
         // ]);
 
-        // Category::create([
-        //     'name' => 'Web programming',
-        //     'slug' => 'web-programming'
-        // ]);
+        Category::create([
+            'name' => 'Web programming',
+            'slug' => 'web-programming'
+        ]);
 
-        // Category::create([
-        //     'name' => 'Data science',
-        //     'slug' => 'data-science'
-        // ]);
+        Category::create([
+            'name' => 'Data science',
+            'slug' => 'data-science'
+        ]);
 
-        Post::factory(3)->create();
+        Category::create([
+            'name' => 'Artificial intelligence',
+            'slug' => 'artificial-intelligence'
+        ]);
+
+        Post::factory(25)->create();
 
         // Post::create([
         //     'title' => 'First Title',

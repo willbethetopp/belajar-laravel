@@ -11,6 +11,7 @@ class Post extends Model
     
     // Column can not fill in
     protected $guarded = ['id'];
+    protected $with = ['author', 'category'];
 
     // Column can fill in
     // $fillable can override $guarded
