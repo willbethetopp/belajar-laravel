@@ -18,14 +18,12 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('home', ["title" => "Home", 
-                        "active" => "home"]);
+    return view('home', ["title" => "Home"]);
 });
 
 Route::get('/about', function () {
     return view('about', [
         "title" => "About",
-        "active" => "about",
         "name" => "Muhamad Taufik Satya",
         "email" => "taufik.satya09@gmail.com",
     ]);
@@ -34,10 +32,3 @@ Route::get('/about', function () {
 Route::get('/posts', [PostController::class, 'index']);
 Route::get('/posts/{post:slug}', [PostController::class, 'show']);
 Route::get('/categories', [CategoryController::class, 'index']);
-Route::get('/categories/{category:slug}', [CategoryController::class, 'show']);
-Route::get('/authors/{author:name}', [User::class, function (User $author) {
-    return view('posts', [
-        'title' => 'Posts by user : ' . $author->name,
-        'posts' => $author->posts->load('author', 'category')
-    ]);
-}]);

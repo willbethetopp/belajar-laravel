@@ -7,17 +7,20 @@
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav">
         <li class="nav-item">
-          <a class="nav-link {{ ($active === "home") ? "active" : "" }}" href="/">Home</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link {{ ($active === "about") ? "active" : "" }}" href="/about">About</a>
+          <a class="nav-link {{ request()->segment(1) === null ? "active" : "" }}" href="/">Home</a>
 
         </li>
         <li class="nav-item">
-          <a class="nav-link {{ ($active === "blog") ? "active" : "" }}" href="/posts">Blog</a>
+          <a class="nav-link {{ request()->segment(1) === "about" ? "active" : "" }}" href="/about">About</a>
+
         </li>
         <li class="nav-item">
-          <a class="nav-link {{ ($active === "categories") ? "active" : "" }}" href="/categories">Categories</a>
+          <a class="nav-link {{ request()->segment(1) === "posts" ? "active" : "" }}" href="/posts">Blog</a>
+
+        </li>
+        <li class="nav-item">
+          <a class="nav-link {{ request()->segment(1) === "categories" ? "active" : "" }}" href="/categories">Categories</a>
+
         </li>
       </ul>
     </div>
