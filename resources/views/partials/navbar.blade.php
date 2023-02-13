@@ -20,6 +20,25 @@
         </li>
       </ul>
       <ul class="navbar-nav ms-auto">
+        @auth
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Welcome back, {{ auth()->user()->name }}
+          </a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="/dashboard"><i class="bi bi-layout-text-window-reverse"></i> Dashboard</a></li>
+            <li>
+              <hr class="dropdown-divider">
+            </li>
+            <li>
+              <form action="/logout" method="post">
+                @csrf
+                <button type="submit" class="dropdown-item"><i class="bi bi-box-arrow-right"></i> Logout</button>
+              </form>
+            </li>
+          </ul>
+        </li>
+        @else
         <li class="nav-item">
           <a href="/login" style="display: flex; align-items: center;" class="nav-link {{ request()->segment(1) === "login" ? "active" : "" }}">
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-right-square" viewBox="0 0 16 16">
@@ -30,6 +49,7 @@
             </div>
           </a>
         </li>
+        @endauth
       </ul>
     </div>
   </div>

@@ -44,4 +44,9 @@ class Post extends Model
             return $query->whereHas('author', fn($query) => $query->where('username', $author));
         });
     }
+
+    public function getRouteKeyName()
+    {
+        return 'slug';
+    }
 }
