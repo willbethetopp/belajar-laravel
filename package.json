@@ -12,5 +12,8 @@
         "postcss": "^8.1.14",
         "prettier": "^2.8.3",
         "vite": "^4.0.0"
+    },
+    "dependencies": {
+        "feather-icons": "^4.29.0"
     }
 }

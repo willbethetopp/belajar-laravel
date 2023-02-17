@@ -11,12 +11,12 @@ class Post extends Model
     use HasFactory, Sluggable;
 
     // Column can not fill in
-    protected $guarded = ['id'];
+    // protected $guarded = ['id'];
     protected $with = ['author', 'category'];
 
     // Column can fill in
     // $fillable can override $guarded
-    // protected $fillable = ['title', 'slug', 'excerpt', 'body'];
+    protected $fillable = ['title', 'slug', 'excerpt', 'body', 'user_id', 'category_id'];
 
     public function category()
     {
@@ -51,17 +51,17 @@ class Post extends Model
         return 'slug';
     }
 
-//     /**
-//      * Return the sluggable configuration array for this model.
-//      *
-//      * @return array
-//      */
-//     public function sluggable(): array
-//     {
-//         return [
-//             'slug' => [
-//                 'source' => 'title'
-//             ]
-//         ];
-//     }
+    /**
+     * Return the sluggable configuration array for this model.
+     *
+     * @return array
+     */
+    public function sluggable(): array
+    {
+        return [
+            'slug' => [
+                'source' => 'title'
+            ]
+        ];
+    }
 }

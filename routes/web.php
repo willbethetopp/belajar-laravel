@@ -5,8 +5,8 @@ use App\Http\Controllers\DashboardPostController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
-use Illuminate\Auth\Events\Login;
 use Illuminate\Support\Facades\Route;
+use Cviebrock\EloquentSluggable\Services\SlugService;
 
 /*
 |--------------------------------------------------------------------------
@@ -47,5 +47,5 @@ Route::get('/dashboard', function () {
     return view("dashboard.index");
 })->middleware('auth');
 
-// Route::get('/dashboard/posts/makeSlug', [DashboardPostController::class], 'makeSlug');
+// Route::get('/buildSlug', [Functional::class], 'buildSlug')->middleware('json');
 Route::resource('/dashboard/posts', DashboardPostController::class)->middleware('auth');
